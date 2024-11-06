@@ -57,7 +57,7 @@ if ($id) {
 
     <div class="container" id="tamanhoContainer" style=" margin-top: 40px; ">
         <h4>Cadastrar Usuário</h4>
-        <form action="insert.php" method="POST" style="margin-top: 20px;">
+        <form action="update.php" method="POST" style="margin-top: 20px;">
             <input type="hidden" name="idusers" value="<?php echo $info['idusers']; ?>">
 
             <div class="form-group">

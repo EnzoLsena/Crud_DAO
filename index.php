@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
-    <title>Registro</title>
+    <title>Registar-se</title>
     <style>
         body {
             background-color: #303030;
@@ -87,7 +87,7 @@
     <?php
     require_once "config.php";
     $lista = [];
-    $sql = $pdo->query("SELECT * FROM crud_pdo.users");
+    $sql = $pdo->query("SELECT * FROM users");
     if ($sql->rowCount() > 0) {
         $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
     }
