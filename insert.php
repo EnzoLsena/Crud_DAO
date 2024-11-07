@@ -11,7 +11,7 @@ if($name && $email) {
     $sql->execute();
 
     if($sql->rowCount() === 0){
-        $sql = $pdo->prepare("INSERT INTO users (`name`, `email`) VALUES (:name, :email)");
+        $sql = $pdo->prepare("INSERT INTO crud_dao.users (`name`, `email`) VALUES (:name, :email)");
         $sql->bindParam(':name', $name);
         $sql->bindParam(':email', $email);
         $sql->execute();

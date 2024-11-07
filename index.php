@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
-    <title>Registar-se</title>
+    <title>Registro</title>
     <style>
         body {
             background-color: #303030;
@@ -87,7 +87,7 @@
     <?php
     require_once "config.php";
     $lista = [];
-    $sql = $pdo->query("SELECT * FROM users");
+    $sql = $pdo->query("SELECT * FROM crud_dao.users");
     if ($sql->rowCount() > 0) {
         $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -110,19 +110,27 @@
                         <th scope="col">Ação</th>
                     </tr>
                 </thead>
-                <?php foreach ($lista as $user): ?>
-                    <tr>
-                        <td><?php echo $user['idusers']; ?></td>
-                        <td><?php echo $user['name']; ?></td>
-                        <td><?php echo $user['email']; ?></td>
-                        <td><?php echo $user['register']; ?></td>
-                        <td>
-                            <a href="edit.php?id=<?php echo $user['idusers'];?>"><i class="fa-regular fa-pen-to-square"></i></a>
-                            <a href="excluir.php?id=<?php echo $user['idusers'];?>" onclick="return confirm('Tem certeza que desja excluir?');"><i class="fa-solid fa-trash"></i></a>
+                <?php
+                if (count($lista) > 0) {
+                    foreach ($lista as $user): ?>
+                        <tr>
+                            <td><?php echo $user['idusers']; ?></td>
+                            <td><?php echo $user['name']; ?></td>
+                            <td><?php echo $user['email']; ?></td>
+                            <td><?php echo $user['register']; ?></td>
+                            <td>
+                                <a href="edit.php?id=<?php echo $user['idusers']; ?>"><i class="fa-regular fa-pen-to-square"></i></a>
+                                <a href="excluir.php?id=<?php echo $user['idusers']; ?>" onclick="return confirm('Tem certeza que desja excluir?');"><i class="fa-solid fa-trash"></i></a>
 
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
+                            </td>
+                        </tr>
+                <?php endforeach;
+                } else {
+                    echo "<h3>Nenhum usuário cadastrado...</h3>";
+                }
+                ?>
+
+
             </table>
         </div>
     </div>

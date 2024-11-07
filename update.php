@@ -7,12 +7,13 @@ $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
 if ( $id && $name && $email) {
 
-    $sql->prepare("UPDATE users SET name = :name, email = :email WHERE idusers = :id");
+    $sql = $pdo->prepare("UPDATE users SET name = :name, email = :email WHERE idusers = :id");
     $sql->bindValue(":name", $name);
     $sql->bindValue(":email", $email);
     $sql->bindValue(":id", $id);
+    $sql->execute();
 
-    header("Location: add.php");
+    header("Location: index.php");
     exit;
 
 } else {

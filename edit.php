@@ -56,7 +56,7 @@ if ($id) {
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
 
     <div class="container" id="tamanhoContainer" style=" margin-top: 40px; ">
-        <h4>Cadastrar Usuário</h4>
+        <h4>Editar Usuário</h4>
         <form action="update.php" method="POST" style="margin-top: 20px;">
             <input type="hidden" name="idusers" value="<?php echo $info['idusers']; ?>">
 
